@@ -120,9 +120,7 @@ export class ImageTrail {
             opacity: 1,
             scale: 0,
             zIndex: this.zIndexVal,
-            xPercent: 0,
-            yPercent: 0,
-            x: cacheMousePos.x - img.rect.width/2,
+            x: cacheMousePos.x - img.rect.width/2 ,
             y: cacheMousePos.y - img.rect.height/2
         }, {
             duration: 0.4,
@@ -133,22 +131,22 @@ export class ImageTrail {
         }, 0)
         /* Inner image */
         .fromTo(img.DOM.inner, {
-            scale: 1.2
+            scale: 2.8,
+            filter: 'brightness(250%)'
         }, {
             duration: 0.4,
             ease: 'power1',
-            scale: 1
+            scale: 1,
+            filter: 'brightness(100%)'
         }, 0)
         /* Inner image */
         // then make it disappear
         .to(img.DOM.el, {
-            duration: .6,
+            duration: 0.4,
             ease: 'power2',
             opacity: 0,
-            scale: 0.2,
-            xPercent: () => gsap.utils.random(-30,30),
-            yPercent: -200,
-        }, 0.6)
+            scale: 0.2
+        }, 0.45)
     }
     
     /**
